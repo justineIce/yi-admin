@@ -1,7 +1,7 @@
 {
   "name": "yi-admin",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -28,5 +28,12 @@
     "prettier": "^1.19.1",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
+  },
+  "config":{
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justineIce/yi-admin.git"
   }
 }
