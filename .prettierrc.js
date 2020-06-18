@@ -1,3 +1,4 @@
+//Prettier
 module.exports = {
 	trailingComma: 'es5', // 对象属性最后有 ","
 	tabWidth: 4, //tab缩进大小,默认为2
