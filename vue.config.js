@@ -25,5 +25,19 @@ module.exports = {
         ws: false
       }
     }
+  },
+  css:{
+    loaderOptions:{
+      sass:{
+        prependData:'@import \'~@/assets/style/public.scss\';'
+      },
+      less: {
+        lessOptions: {
+          modifyVars: {
+            blue: '#2262AB'
+          }
+        }
+      }
+    }
   }
 };

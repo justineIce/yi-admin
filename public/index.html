@@ -9,8 +9,51 @@
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>很抱歉，如果没有 JavaScript 支持，共享数据中心 将不能正常工作。请启用浏览器的 JavaScript 然后继续.</strong>
     </noscript>
+    <script>
+        function IEVersion() {
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+            var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器
+            var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器
+            var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+            if (isIE) {
+                var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                reIE.test(userAgent);
+                var fIEVersion = parseFloat(RegExp["$1"]);
+                if (fIEVersion == 7) {
+                    return 7;
+                } else if (fIEVersion == 8) {
+                    return 8;
+                } else if (fIEVersion == 9) {
+                    return 9;
+                } else if (fIEVersion == 10) {
+                    return 10;
+                } else {
+                    return 6;//IE版本<=7
+                }
+            } else if (isEdge) {
+                return 'edge';//edge
+            } else if (isIE11) {
+                return 11; //IE11
+            } else {
+                return -1;//不是ie浏览器
+            }
+        }
+        if (IEVersion() > 0) {
+            document.write("<div class='browserTip' >" +
+                    "<div style='padding: 20px 0;background: #ffcc62;color: #484746;line-height: 50px;font-size: 18px;text-align:center'>系统推荐使用以下浏览器：" +
+                    "<img src='/browser/chrome.png' width='20'> 谷歌浏览器 " +
+                    "<a href='https://www.google.cn/intl/zh-CN/chrome/'>点击下载</a> 、 " +
+                    "<img src='/browser/firefox.png' width='20'> 火狐浏览器 " +
+                    "<a href='https://www.firefox.com.cn/?utm_medium=referral&utm_source=mozilla.org'>点击下载</a> 、 " +
+                    "<img src='/browser/360.png' width='20'> 360安全浏览器（极速模式）" +
+                    "<a href='http://browser.360.cn/'>点击下载</a> 、 " +
+                    "<img src='/browser/qq.png' width='20'> QQ浏览器（极速模式）" +
+                    "<a href='https://browser.qq.com/'>点击下载</a>" +
+                    "。如发现操作无反应，请尝试换一种浏览器</div></div>")
+        }
+    </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

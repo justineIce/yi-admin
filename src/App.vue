@@ -1,27 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+	<div id="app">
+	<router-view />
+	</div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import HelloWorld from "./components/HelloWorld.vue";
 
-@Options({
-  components: {
-    HelloWorld
+// import { defineComponent } from 'vue';
+// import {useStore} from 'vuex'
+// import {useRoute} from "vue-router";
+// 菜单
+// import { menuHeader, menuAside } from '@/menu'
+// <!--import { useStore } from 'vuex';-->
+
+
+// export default defineComponent({
+//   name:'App',
+//   setup() {
+//     // const store = useStore()
+//     console.log("a")
+//   }
+// })
+
+// import Vue from 'vue'
+// import Component from 'vue-class-component'
+import {Component,Vue} from 'vue-property-decorator'
+@Component
+export default class App extends Vue {
+  created(){
+    console.log('a')
   }
-})
-export default class App extends Vue {}
+}
 </script>
 
+
+
+
+
+
+
+
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import '~@/assets/style/public-class.scss';
 </style>

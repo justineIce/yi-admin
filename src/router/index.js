@@ -1,22 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
+// 路由数据
+import routes from './routes';
+import { createRouterGuards } from "@/router/guards";
 const router = createRouter({
-    history: createWebHistory(),
-    routes: []
+  history: createWebHistory(),
+  routes: routes
 });
-/**
- * 路由拦截
- * 权限验证
- */
-router.beforeEach(async (to, from, next) => {
-    next();
-});
-router.afterEach(to => {
-    // 进度条
-    // NProgress.done()
-    // 多页控制 打开新的页面
-    // store.dispatch('d2admin/page/open', to)
-    // 更改标题
-    // util.title(to.meta.title)
-});
+export function setupRouter(app) {
+  app.use(router);
+  // 创建路由守卫
+  createRouterGuards(router);
+}
 export default router;
 //# sourceMappingURL=index.js.map
